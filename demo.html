@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sliders</title>
+		<style>
+			/* Top bar styles */
+			.top-bar {
+				background-color: #333;
+				color: white;
+				padding: 10px 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.top-bar .links a {
+				color: white;
+				margin-left: 15px;
+				text-decoration: none;
+			}
+			.top-bar .links a:hover {
+				text-decoration: underline;
+			}
+			.slider-container {
+				margin: 20px 0;
+				width: 100%;
+			}
+			.all-sliders {
+				order: 1;
+				width: 25%;
+				background-color: rgb(166, 202, 236);
+				border: 2px solid black;
+				border-radius: 5%;
+			}
+			.slider-wrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 100%;
+			}
+			.slider-title {
+				margin-bottom: 10px;
+				font-weight: bold; /* Make the title bold */
+				font-family: Arial, sans-serif; /* Set the font to Arial */
+				text-align: center;
+				font-size: 110%;
+			}
+			.slider {
+				-webkit-appearance: none;
+				width: 100%;
+				height: 15px;
+				outline: none;
+			}
+			.slider:hover {
+				opacity: 1;
+			}
+			.slider::-webkit-slider-runnable-track {
+				width: 100%;
+				height: 15px;
+				border: 2px solid #000; /* Add border */
+			}
+			.slider::-moz-range-track {
+				width: 100%;
+				height: 15px;
+				border: 2px solid #000; /* Add border */
+			}
+			.slider::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				/*width: 0;
+				height: 0;
+				border-left: 12px solid transparent;
+				border-right: 12px solid transparent;
+				border-top: 20px solid rgb(192, 0, 1);
+				background: transparent;*/
+				background: url(Upside-down-triangle.png);
+				cursor: pointer;
+				transform: translateY(
+					-10px
+				); /* Adjust this value to shift the thumb up */
+			}
+			.slider::-moz-range-thumb {
+				width: 0;
+				height: 0;
+				border-left: 12px solid transparent;
+				border-right: 12px solid transparent;
+				border-top: 20px solid rgb(192, 0, 1);
+				background: transparent;
+				cursor: pointer;
+				transform: translateY(
+					-10px
+				); /* Adjust this value to shift the thumb up */
+			}
+			.slider-legend {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				margin-top: 5px;
+				font-family: Arial, sans-serif; /* Set the font to Arial */
+			}
+			.legend {
+				text-align: center;
+				font-size: 125%;
+				font-weight: bold; /* Make the legend bold */
+				font-family: Arial, sans-serif; /* Set the font to Arial */
+				margin-top: 20px;
+			}
+			.slider-and-image {
+				display: flex;
+				justify-content: left;
+				padding-top: 10px;
+			}
+			.image-container {
+				order: 2;
+			}
+			@media (max-width: 768px) {
+				.slider-and-image {
+					flex-direction: column;
+					width: 90%;
+					padding-top: 0px;
+				}
+				.all-sliders {
+					order: 2;
+					width: 100%;
+				}
+				.image-container {
+					order: 1;
+					width: 100%;
+				}
+				.text {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top-bar">
+			<div class="text">
+				Evaluating fuel structure metrics using synthetic terrestrial lidar
+				scans: Ontario's jack pine stands as a case study
+			</div>
+			<div class="links">
+				<a href="https://www.jameslab.ca" class="text"
+					>JamesLab @ University of Toronto &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+					&nbsp;
+				</a>
+
+				Get in touch:
+				<a href="mailto:leo.jourdan@mail.utoronto.ca">Email</a>
+				<a> • </a>
+				<a href="https://www.linkedin.com/in/leo-jourdan/">Linkedin</a>
+			</div>
+		</div>
+		<div class="slider-and-image">
+			<div style="padding: 20px" class="all-sliders">
+				<div class="slider-container">
+					<div class="slider-wrapper">
+						<div class="slider-title">Stem density</div>
+						<input
+							type="range"
+							min="1"
+							max="5"
+							value="4"
+							step="1"
+							class="slider"
+							id="stemDensity"
+							style="background: rgb(213, 94, 0)"
+						/>
+						<div class="slider-legend">
+							<span>Low</span>
+							<span>Mid</span>
+							<span>High</span>
+						</div>
+					</div>
+				</div>
+				<div class="slider-container">
+					<div class="slider-wrapper">
+						<div class="slider-title">Understory density</div>
+						<input
+							type="range"
+							min="1"
+							max="5"
+							value="2"
+							step="1"
+							class="slider"
+							id="understoryDensity"
+							style="background: rgb(241, 228, 65)"
+						/>
+						<div class="slider-legend">
+							<span>Low</span>
+							<span>Mid</span>
+							<span>High</span>
+						</div>
+					</div>
+				</div>
+				<div class="slider-container">
+					<div class="slider-wrapper">
+						<div class="slider-title">Stem mortality</div>
+						<input
+							type="range"
+							min="1"
+							max="5"
+							value="3"
+							step="1"
+							class="slider"
+							id="stemMortality"
+							style="background: rgb(13, 159, 115)"
+						/>
+						<div class="slider-legend">
+							<span>Low</span>
+							<span>Mid</span>
+							<span>High</span>
+						</div>
+					</div>
+				</div>
+				<div class="slider-container">
+					<div class="slider-wrapper">
+						<div class="slider-title">Mean tree height</div>
+						<input
+							type="range"
+							min="1"
+							max="5"
+							value="4"
+							step="1"
+							class="slider"
+							id="meanTreeHeight"
+							style="background: rgb(1, 114, 178)"
+						/>
+						<div class="slider-legend">
+							<span>Short</span>
+							<span>Mid</span>
+							<span>Tall</span>
+						</div>
+					</div>
+				</div>
+				<div class="legend">Choose your structural scenario</div>
+			</div>
+			<div style="padding: 20px" class="image-container">
+				<img
+					id="dynamicImage"
+					src="images/image_4_2_3_4.jpg"
+					alt="Dynamic Image"
+					style="max-width: 100%"
+				/>
+			</div>
+		</div>
+		<script>
+			function updateImage() {
+				const stemDensity = document.getElementById("stemDensity").value;
+				const understoryDensity =
+					document.getElementById("understoryDensity").value;
+				const stemMortality = document.getElementById("stemMortality").value;
+				const meanTreeHeight = document.getElementById("meanTreeHeight").value;
+				const image = document.getElementById("dynamicImage");
+
+				const imageIndex =
+					stemDensity +
+					"_" +
+					understoryDensity +
+					"_" +
+					stemMortality +
+					"_" +
+					meanTreeHeight;
+				image.src = `images/image_${imageIndex}.jpg`;
+			}
+
+			document.querySelectorAll(".slider").forEach((slider) => {
+				slider.addEventListener("input", updateImage);
+			});
+		</script>
+	</body>
+</html>
